@@ -24,7 +24,11 @@ def test_create_emp():
         headers={"X-Token": "A"},
         json={
             "id": 1,
-            "value": 10,
+            "nombre":"Prueba",
+            "apellido":"Empleado",
+            "edad":"18 años",
+            "cargo":"Encargado",
+            "salario":"1000bs"
         }
     )
 
@@ -37,7 +41,7 @@ def test_create_emp():
 
 def test_read_emp():
     resp = client.get(
-        "/notas/1/",
+        "/empleado/1/",
         headers={"X-Token": "A"}
     )
 
