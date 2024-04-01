@@ -6,7 +6,7 @@ app = FastAPI()
 
 client = TestClient(app)
 
-def test_read_index_emp():
+def test_read_index_empleado():
 
     resp = client.get("/empleados")
 
@@ -18,7 +18,7 @@ def test_read_index_emp():
     }
 
 
-def test_create_emp():
+def test_create_empleado():
     resp = client.post(
         "/empleados/",
         headers={"X-Token": "A"},
@@ -36,10 +36,14 @@ def test_create_emp():
 
     assert resp.json() == {
         "id": 1,
-        "value": 10
+        "nombre":"Prueba",
+        "apellido":"Empleado",
+        "edad":"18 años",
+        "cargo":"Encargado",
+        "salario":"1000bs"
     }
 
-def test_read_emp():
+def test_read_empleado():
     resp = client.get(
         "/empleado/1/",
         headers={"X-Token": "A"}
@@ -48,6 +52,10 @@ def test_read_emp():
     assert resp.status_code == 200
 
     assert resp.json() == {
-        "id": 1,
-        "value": 10
+       "id": 1,
+        "nombre":"Prueba",
+        "apellido":"Empleado",
+        "edad":"18 años",
+        "cargo":"Encargado",
+        "salario":"1000bs"
     }
