@@ -13,4 +13,3 @@ def test_read_main():
     assert resp.json() == {
         "message": "Empleados api"
     }
-
